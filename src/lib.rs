@@ -93,7 +93,7 @@ pub enum Netmessage {
     ReqDropped,
     /// Josh
     Dropped(bool),
-	DDebugJosh,
+	DDebugJosh(Vec<u32>),
 }
 
 impl Netmessage {
