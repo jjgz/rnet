@@ -93,6 +93,12 @@ pub enum Netmessage {
     ReqDropped,
     /// Josh
     Dropped(bool),
+    //DebugJoe filled from module
+    DebugJF(u32),
+    //DebugJoe empty from module
+    DebugJE(u32),
+    //DebugJoe speed for motors
+    DebugOC(f64),
 }
 
 impl Netmessage {
