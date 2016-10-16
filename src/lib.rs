@@ -2,6 +2,7 @@
 extern crate serde;
 #[macro_use]
 extern crate serde_derive;
+extern crate serde_json;
 
 #[derive(Debug, Clone, Deserialize, Serialize, PartialEq)]
 pub struct Point {
@@ -108,4 +109,40 @@ impl Netmessage {
             _ => "Unnamed",
         })
     }
+}
+
+#[test]
+fn test_world_json() {
+    use std::io::{stderr, Write};
+    writeln!(&mut stderr(),
+             "ReqMovement json: {}",
+             serde_json::to_string(&Netmessage::ReqMovement)
+                 .unwrap())
+        .unwrap();
+    writeln!(&mut stderr(),
+             "CF json: {}",
+             serde_json::to_string(&Netmessage::CF(457))
+                 .unwrap())
+        .unwrap();
+    writeln!(&mut stderr(),
+             "Movement json: {}",
+             serde_json::to_string(&Netmessage::Movement(Point{
+                 x: 1.0,
+                 y: -1.0,
+                 v: 0.1,
+                 angle: 0.2,
+                 av: 0.01,
+             }))
+                 .unwrap())
+        .unwrap();
+    writeln!(&mut stderr(),
+             "Stopped json: {}",
+             serde_json::to_string(&Netmessage::Stopped(true))
+                 .unwrap())
+        .unwrap();
+    writeln!(&mut stderr(),
+             "ReqName json: {}",
+             serde_json::to_string(&Netmessage::ReqName)
+                 .unwrap())
+        .unwrap();
 }
