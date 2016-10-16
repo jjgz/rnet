@@ -93,3 +93,19 @@ pub enum Netmessage {
     /// Josh
     Dropped(bool),
 }
+
+impl Netmessage {
+    pub fn bot_name(&self) -> String {
+        String::from(match *self {
+            Netmessage::NameGeordon => "Geordon",
+            Netmessage::NameJoe => "Joe",
+            Netmessage::NameJosh => "Josh",
+            Netmessage::NameZach => "Zach",
+            Netmessage::NameDebugGeordon => "DebugGeordon",
+            Netmessage::NameDebugJoe => "DebugJoe",
+            Netmessage::NameDebugJosh => "DebugJosh",
+            Netmessage::NameDebugZach => "DebugZach",
+            _ => "Unnamed",
+        })
+    }
+}
