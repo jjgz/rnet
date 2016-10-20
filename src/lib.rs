@@ -98,7 +98,7 @@ pub enum Netmessage {
     //DebugJoe empty from module
     DebugJE(u32),
     //DebugJoe speed for motors
-    DebugOC(f64),
+    DebugOC(f64,f64),
 }
 
 impl Netmessage {
