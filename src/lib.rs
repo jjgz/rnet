@@ -95,6 +95,8 @@ pub enum Netmessage {
     Dropped(bool),
 	PDebugJosh(Vec<u64>),
 	TDebugJosh(Vec<u64>),
+	TestMove(u32),
+	TestRotate(u32),
 }
 
 impl Netmessage {
