@@ -101,6 +101,8 @@ pub enum Netmessage {
     DebugOC(f64,f64),
     //DebugJoe movement test for rover
     DebugJoeTread(bool, bool),
+    /// Random string from Geordon bot.
+    DebugGeordon(String),
 }
 
 impl Netmessage {
