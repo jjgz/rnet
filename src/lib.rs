@@ -99,6 +99,8 @@ pub enum Netmessage {
     DebugJE(u32),
     //DebugJoe speed for motors
     DebugOC(f64,f64),
+    //DebugJoe movement test for rover
+    DebugJoeTread(bool, bool),
 }
 
 impl Netmessage {
