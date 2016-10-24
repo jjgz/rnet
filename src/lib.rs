@@ -94,7 +94,7 @@ pub enum Netmessage {
     /// Josh
     Dropped(bool),
 	PDebugJosh(Vec<u64>),
-	TDebugJosh(Vec<u64>),
+	ADebugJosh(Vec<u64>),
 	TestMove(u32),
 	TestRotate(u32),
 	ReqTestReset,
