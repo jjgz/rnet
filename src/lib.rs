@@ -98,6 +98,7 @@ pub enum Netmessage {
 	TestMove(u32),
 	TestRotate(u32),
 	ReqTestReset,
+	RDebugJosh(Vec<u64>),
 }
 
 impl Netmessage {
