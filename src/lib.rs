@@ -93,16 +93,23 @@ pub enum Netmessage {
     ReqDropped,
     /// Josh
     Dropped(bool),
-    //DebugJoe filled from module
+    /// DebugJoe filled from module
     DebugJF(u32),
-    //DebugJoe empty from module
+    /// DebugJoe empty from module
     DebugJE(u32),
-    //DebugJoe speed for motors
+    /// DebugJoe speed for motors
     DebugOC(f64,f64),
-    //DebugJoe movement test for rover
+    /// DebugJoe movement test for rover
     DebugJoeTread(bool, bool),
-    /// Random string from Geordon bot.
+    /// Random debug string from Geordon bot.
     DebugGeordon(String),
+	PDebugJosh(Vec<u64>),
+	ADebugJosh(Vec<u64>),
+	TestMove(u32),
+	TestRotate(u32),
+	ReqTestReset,
+	RDebugJosh(Vec<u64>),
+	TestRow(Vec<u64>),
 }
 
 impl Netmessage {
