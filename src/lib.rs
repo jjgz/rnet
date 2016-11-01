@@ -17,6 +17,14 @@ pub struct Point {
     /// This is the angle's variance in radians^2.
     pub av: f64,
 }
+#[derive(Debug, Clone, Deserialize, Serialize, PartialEq)]
+pub struct Coordinate {
+    /// This is in meters.
+    pub x: f64,
+    /// This is in meters.
+    pub y: f64,
+}
+
 
 #[derive(Debug, Clone, Deserialize, Serialize, PartialEq)]
 pub enum Netmessage {
@@ -52,19 +60,13 @@ pub enum Netmessage {
     /// Geordon
     Movement(Point),
     /// Geordon
-    JoeReqPoints,
-    /// Joe
-    JF(u32),
-    /// Joe
-    JE(u32),
+    ReqTargets,
+    /// Josh
+    Targets(Vec<Coordinate>),
     /// Geordon
-    JoshReqPoints,
+    ReqHalfRow(u8),
     /// Josh
-    CF(u32),
-    /// Josh
-    CE(u32),
-    /// Josh
-    CT(u32),
+    HalfRow(Vec<u8>),
     /// Geordon
     ReqStopped,
     /// Josh
@@ -103,6 +105,10 @@ pub enum Netmessage {
     DebugJoeTread(bool, bool),
     /// Random debug string from Geordon bot.
     DebugGeordon(String),
+    /// Geordon
+    GDReqHalfRow(u8),
+    /// GeordonDebug
+    GDHalfRow(Vec<u8>),
 	PDebugJosh(Vec<u64>),
 	ADebugJosh(Vec<u64>),
 	TestMove(u32),
