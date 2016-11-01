@@ -143,11 +143,6 @@ fn test_world_json() {
                  .unwrap())
         .unwrap();
     writeln!(&mut stderr(),
-             "CF json: {}",
-             serde_json::to_string(&Netmessage::CF(457))
-                 .unwrap())
-        .unwrap();
-    writeln!(&mut stderr(),
              "Movement json: {}",
              serde_json::to_string(&Netmessage::Movement(Point{
                  x: 1.0,
@@ -166,6 +161,16 @@ fn test_world_json() {
     writeln!(&mut stderr(),
              "ReqName json: {}",
              serde_json::to_string(&Netmessage::ReqName)
+                 .unwrap())
+        .unwrap();
+    writeln!(&mut stderr(),
+             "ReqHalfRow json: {}",
+             serde_json::to_string(&Netmessage::ReqHalfRow(4))
+                 .unwrap())
+        .unwrap();
+    writeln!(&mut stderr(),
+             "HalfRow json: {}",
+             serde_json::to_string(&Netmessage::HalfRow(vec![0; 64]))
                  .unwrap())
         .unwrap();
 }
