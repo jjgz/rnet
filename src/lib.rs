@@ -109,6 +109,8 @@ pub enum Netmessage {
     GDReqHalfRow(u8),
     /// GeordonDebug
     GDHalfRow(Vec<u8>),
+    GDReqPing,
+    GDPing,
 	PDebugJosh(Vec<u64>),
 	ADebugJosh(Vec<u64>),
 	TestMove(u32),
