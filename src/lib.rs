@@ -100,6 +100,7 @@ pub enum Netmessage {
 	ReqTestReset,
 	RDebugJosh(Vec<u64>),
 	TestRow(Vec<u64>),
+	GReqGrabbed,
 }
 
 impl Netmessage {
