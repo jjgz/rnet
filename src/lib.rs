@@ -101,6 +101,7 @@ pub enum Netmessage {
 	RDebugJosh(Vec<u64>),
 	TestRow(Vec<u64>),
 	GReqGrabbed,
+	DReqDropped,
 }
 
 impl Netmessage {
