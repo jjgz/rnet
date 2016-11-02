@@ -98,9 +98,11 @@ pub enum Netmessage {
     //DebugJoe empty from module
     DebugJE(u32),
     //DebugJoe speed for motors
-    DebugOC(f64,f64),
+    DebugOC(f64,f64,u32,u32),
     //DebugJoe movement test for rover
     DebugJoeTread(bool, bool),
+    //DebugJoeDistance for straight movement distance guess output
+    DebugJoeDistance(u32),
 }
 
 impl Netmessage {
