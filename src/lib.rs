@@ -102,9 +102,11 @@ pub enum Netmessage {
     //DebugJoe speed for motors
     DebugJoeOC(f64,f64,u32,u32),
     //DebugJoe movement test for rover
-    DebugJoeTread(bool, bool),
+    DebugJoeTread(),
     //DebugJoeDistance for straight movement distance guess output
     DebugJoeDistance(u32),
+    //DebugJoeUltra sends fake ultrasonic and photosensor data from client for debugging
+    DebugJoeUltra(f64,f64,f64),
     /// DebugJoe movement test for rover
     DebugGeordon(String),
     /// Geordon
