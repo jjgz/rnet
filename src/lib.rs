@@ -124,7 +124,8 @@ pub enum Netmessage {
 	ReqTestReset,
 	RDebugJosh(Vec<u64>),
 	TestRow(Vec<u64>),
-
+	JCHalfRow(u8),
+	HDebugJosh(u8),
 }
 
 impl Netmessage {
