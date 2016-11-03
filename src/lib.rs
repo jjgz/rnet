@@ -78,7 +78,7 @@ pub enum Netmessage {
     /// Zach
     ReqEdgeDetect,
     /// Josh
-    EdgeDetect(bool),
+    EdgeDetect(u8, u8, u8),
     /// Zach
     ReqEdgeDropped,
     /// Josh
