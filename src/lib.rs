@@ -93,6 +93,8 @@ pub enum Netmessage {
     ReqDropped,
     /// Josh
     Dropped(bool),
+	GReqGrabbed,
+	DReqDropped,
 }
 
 impl Netmessage {
