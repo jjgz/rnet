@@ -78,7 +78,7 @@ pub enum Netmessage {
     /// Zach
     ReqEdgeDetect,
     /// Josh
-    EdgeDetect(bool),
+    EdgeDetect(u8, u8, u8),
     /// Zach
     ReqEdgeDropped,
     /// Josh
@@ -95,6 +95,8 @@ pub enum Netmessage {
     ReqDropped,
     /// Josh
     Dropped(bool),
+	GReqGrabbed,
+	DReqDropped,
     /// DebugJoe filled from module
     DebugJF(u32),
     /// DebugJoe empty from module
@@ -122,6 +124,7 @@ pub enum Netmessage {
 	ReqTestReset,
 	RDebugJosh(Vec<u64>),
 	TestRow(Vec<u64>),
+
 }
 
 impl Netmessage {
