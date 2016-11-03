@@ -17,6 +17,14 @@ pub struct Point {
     /// This is the angle's variance in radians^2.
     pub av: f64,
 }
+#[derive(Debug, Clone, Deserialize, Serialize, PartialEq)]
+pub struct Coordinate {
+    /// This is in meters.
+    pub x: f64,
+    /// This is in meters.
+    pub y: f64,
+}
+
 
 #[derive(Debug, Clone, Deserialize, Serialize, PartialEq)]
 pub enum Netmessage {
@@ -52,19 +60,13 @@ pub enum Netmessage {
     /// Geordon
     Movement(Point),
     /// Geordon
-    JoeReqPoints,
-    /// Joe
-    JF(u32),
-    /// Joe
-    JE(u32),
+    ReqTargets,
+    /// Josh
+    Targets(Vec<Coordinate>),
     /// Geordon
-    JoshReqPoints,
+    ReqHalfRow(u8),
     /// Josh
-    CF(u32),
-    /// Josh
-    CE(u32),
-    /// Josh
-    CT(u32),
+    HalfRow(Vec<u8>),
     /// Geordon
     ReqStopped,
     /// Josh
@@ -95,6 +97,32 @@ pub enum Netmessage {
     Dropped(bool),
 	GReqGrabbed,
 	DReqDropped,
+    /// DebugJoe filled from module
+    DebugJF(u32),
+    /// DebugJoe empty from module
+    DebugJE(u32),
+    //DebugJoe speed for motors
+    DebugJoeOC(f64,f64,u32,u32),
+    //DebugJoe movement test for rover
+    DebugJoeTread(bool, bool),
+    //DebugJoeDistance for straight movement distance guess output
+    DebugJoeDistance(u32),
+    /// DebugJoe movement test for rover
+    DebugGeordon(String),
+    /// Geordon
+    GDReqHalfRow(u8),
+    /// GeordonDebug
+    GDHalfRow(Vec<u8>),
+    GDReqPing,
+    GDPing,
+	PDebugJosh(Vec<u64>),
+	ADebugJosh(Vec<u64>),
+	TestMove(u32),
+	TestRotate(u32),
+	ReqTestReset,
+	RDebugJosh(Vec<u64>),
+	TestRow(Vec<u64>),
+
 }
 
 impl Netmessage {
@@ -122,11 +150,6 @@ fn test_world_json() {
                  .unwrap())
         .unwrap();
     writeln!(&mut stderr(),
-             "CF json: {}",
-             serde_json::to_string(&Netmessage::CF(457))
-                 .unwrap())
-        .unwrap();
-    writeln!(&mut stderr(),
              "Movement json: {}",
              serde_json::to_string(&Netmessage::Movement(Point{
                  x: 1.0,
@@ -145,6 +168,16 @@ fn test_world_json() {
     writeln!(&mut stderr(),
              "ReqName json: {}",
              serde_json::to_string(&Netmessage::ReqName)
+                 .unwrap())
+        .unwrap();
+    writeln!(&mut stderr(),
+             "ReqHalfRow json: {}",
+             serde_json::to_string(&Netmessage::ReqHalfRow(4))
+                 .unwrap())
+        .unwrap();
+    writeln!(&mut stderr(),
+             "HalfRow json: {}",
+             serde_json::to_string(&Netmessage::HalfRow(vec![0; 64]))
                  .unwrap())
         .unwrap();
 }
