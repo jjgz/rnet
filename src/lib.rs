@@ -63,6 +63,7 @@ pub enum Netmessage {
         /// Arena border global coordinates in meters.
         bd: Vec<Coordinate>,
     },
+    GDBuild,
     /// Joe
     ReqMovement,
     /// Geordon
