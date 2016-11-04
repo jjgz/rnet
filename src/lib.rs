@@ -58,6 +58,8 @@ pub enum Netmessage {
     Initialize{
         /// Number of targets.
         nt: usize,
+        /// Rover A position.
+        ra: Coordinate,
         /// Arena border global coordinates in meters.
         bd: Vec<Coordinate>,
     },
