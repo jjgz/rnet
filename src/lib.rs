@@ -127,6 +127,7 @@ pub enum Netmessage {
     GDReqPing,
     GDPing,
     GDFinish,
+    GDAligned,
 	PDebugJosh(Vec<u64>),
 	ADebugJosh(Vec<u64>),
 	TestMove(u32),
