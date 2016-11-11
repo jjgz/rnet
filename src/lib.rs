@@ -126,6 +126,7 @@ pub enum Netmessage {
     GDHalfRow(Vec<u8>),
     GDReqPing,
     GDPing,
+    GDFinish,
 	PDebugJosh(Vec<u64>),
 	ADebugJosh(Vec<u64>),
 	TestMove(u32),
