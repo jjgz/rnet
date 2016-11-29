@@ -17,6 +17,7 @@ pub struct Point {
     /// This is the angle's variance in radians^2.
     pub av: f64,
 }
+
 #[derive(Debug, Clone, Deserialize, Serialize, PartialEq)]
 pub struct Coordinate {
     /// This is in meters.
@@ -24,7 +25,6 @@ pub struct Coordinate {
     /// This is in meters.
     pub y: f64,
 }
-
 
 #[derive(Debug, Clone, Deserialize, Serialize, PartialEq)]
 pub enum Netmessage {
@@ -55,6 +55,15 @@ pub enum Netmessage {
     },
     Heartbeat,
     ReqNetstats,
+    Initialize{
+        /// Number of targets.
+        nt: usize,
+        /// Rover A position.
+        ra: Coordinate,
+        /// Arena border global coordinates in meters.
+        bd: Vec<Coordinate>,
+    },
+    GDBuild,
     /// Joe
     ReqMovement,
     /// Geordon
@@ -118,6 +127,8 @@ pub enum Netmessage {
     GDHalfRow(Vec<u8>),
     GDReqPing,
     GDPing,
+    GDFinish,
+    GDAligned,
 	PDebugJosh(Vec<u64>),
 	ADebugJosh(Vec<u64>),
 	TestMove(u32),
