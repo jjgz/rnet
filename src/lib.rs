@@ -85,7 +85,8 @@ pub enum Netmessage {
     /// Zach
     InPosition(bool),
     /// Zach
-    ReqEdgeDetect,
+    ReqEdgeDetectLeft,
+	ReqEdgeDetectRight,
     /// Josh
     EdgeDetect(u8, u8, u8),
     /// Zach
