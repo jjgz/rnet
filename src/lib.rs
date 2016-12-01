@@ -137,6 +137,13 @@ pub enum Netmessage {
 	TestRow(Vec<u64>),
 	JCHalfRow(Vec<u64>),
 	HDebugJosh(u8),
+    /// Geordon from Joe for proximity data.
+    ReqProximity,
+    /// Joe from Geordon with proximity data.
+    Proximity {
+        left_ir: f64,
+        right_ir: f64,
+    },
 }
 
 impl Netmessage {
