@@ -145,6 +145,7 @@ pub enum Netmessage {
         left_ir: f64,
         right_ir: f64,
     },
+    GDStartAlign,
 }
 
 impl Netmessage {
