@@ -69,6 +69,10 @@ pub enum Netmessage {
     /// Geordon
     Movement(Point),
     /// Geordon
+    ReqAssumed,
+    /// Joe
+    Assumed(Point),
+    /// Geordon
     ReqTargets,
     /// Josh
     Targets(Vec<Coordinate>),
